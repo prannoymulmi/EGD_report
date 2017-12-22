@@ -1,0 +1,117 @@
+%---------------------------------------------------------------------------------------------------
+% Voreinstellungen (Layout, neue Befehle, etc.)
+%---------------------------------------------------------------------------------------------------
+
+\input{einstellungen/grundeinstellungen}															% style parameter
+
+%--------------------------------------------------------------------------------------------------- 
+% start of the paper
+%---------------------------------------------------------------------------------------------------	
+\begin{document}
+
+%--------------------------------------------------------------------------------------------------- 
+%Title page
+%---------------------------------------------------------------------------------------------------
+	\createCoverAndTitlePage{Bachelor}																			%type of thesis
+													{thesis}																			% Bezeichnung arbeit oder thesis 
+													{Martin Mustermann}														% Author
+													{Development and  realisation of a business application
+													 using object oriented C++ programming and client-server
+													 architecture}											  % Titel				
+													{Information Engineering}						% Studydegreecourse
+													{Prof.\ Dr.\ rer.\ nat.\ Martin Zapf}					% supervisor
+													{Prof.\ Dr.\-Ing.\ Armin Kluge}								% second examiner
+													
+
+  \createAbstract					{Bachelor}																			% type of thesis
+													{thesis}																			% description arbeit or thesis 
+													{Martin Mustermann}														% Author
+													{Entwicklung und Aufbau eines 
+													 mikrorechnergesteuerten 
+													 Best\"uckungsautomaten}											  % Titel German				
+													{Development and Construction of a Microprocessor 
+													controlled allocation processor}							% Titel English
+													{Steuerung, und viele weitere interessante 
+													Stichwort}																		% Stichworte
+													{Controller, Microprocessor, and other 
+													interesting words describing the whole 
+													process}																			% Keywords 
+													{Diese Arbeit umfasst alles was man mit einem 
+													Mikrorechner machen kann und nat\"urlich noch vieles mehr.
+													etc.}																					% Kurzzusammenfassung
+													{Inside this report the construction of a very 
+													important Controller for microproc-essors is 
+													described.												
+													etc.}																			% Abstract (Kurzzusammenfassung Englisch)
+
+												
+%--------------------------------------------------------------------------------------------------- 
+% Zusammenfassung
+%---------------------------------------------------------------------------------------------------			
+  									  													
+
+
+%--------------------------------------------------------------------------------------------------- 
+% Danksagung  
+%---------------------------------------------------------------------------------------------------	
+	\input{standard/danke}  																							
+
+%--------------------------------------------------------------------------------------------------- 
+% Verzeichnisse
+%---------------------------------------------------------------------------------------------------	
+  \tableofcontents                              												% Contenets
+	\listoftables                                 												% contents of tables
+	\listoffigures                                												% contents of figures  
+	
+%--------------------------------------------------------------------------------------------------- 
+% First part of the thsis:
+%---------------------------------------------------------------------------------------------------
+	\input{chapter/introduction/introduction.tex}
+	
+%---------------------------------------------------------------------------------------------------	
+% Second part of the thesis:
+%---------------------------------------------------------------------------------------------------
+	\input{chapter/mainpart/mainpart.tex}
+
+%---------------------------------------------------------------------------------------------------
+% Thrd art of the thesis
+%---------------------------------------------------------------------------------------------------
+	\input{chapter/end/end.tex}
+																								
+%---------------------------------------------------------------------------------------------------	
+%references
+%---------------------------------------------------------------------------------------------------		
+
+\renewcommand{\bibname}{References}
+\bibliographystyle{abbrv}       		    														% passed to German reference organisation
+                                          														% Alphabetic sorting, abbreviations
+  \bibliography{literatur/literatur}      														% reference list
+  \input{literatur/literatur}																				%add the non refeenced papers or literature which are as well important for the thesis!
+
+%---------------------------------------------------------------------------------------------------	
+% appendix
+%---------------------------------------------------------------------------------------------------	
+	\appendix
+% \input{anhang/hilfsmittel/hilfsmittel}															% appendix A: helps for the implementation
+																																			% 					of this thesis
+%	\input{anhang/quellcode/quellcode}																	% Appendix B: SourceCode
+
+%---------------------------------------------------------------------------------------------------	
+% Glossar
+%---------------------------------------------------------------------------------------------------	
+	\printnomenclature
+
+%---------------------------------------------------------------------------------------------------	
+% index
+%---------------------------------------------------------------------------------------------------	
+	\printindex
+	
+%---------------------------------------------------------------------------------------------------	
+% Declaration
+%---------------------------------------------------------------------------------------------------		
+	\asurency	
+
+%--------------------------------------------------------------------------------------------------- 
+% End of the thesis
+%--------------------------------------------------------------------------------------------------- 
+\end{document}
