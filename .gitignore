@@ -1,4 +1,4 @@
-
+.idea
 *.aux
 *.bib
 *.blg
@@ -9,4 +9,6 @@
 *.nlo 
 *.out
 *.toc
+*.pdf
+*.xml
 thesis3.aux
