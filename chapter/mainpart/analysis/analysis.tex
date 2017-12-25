@@ -5,22 +5,58 @@
 \chapter{Requirement Analysis}
     The first phase of our project started off as a brainstorming stage where the functionality
     of the EGD was uncertain. Many discussions including a visit to the \textbf{dialog in the dark} 
-    was conducted, where some questions were addressed to the visually impaired to get an clear insight
+    was conducted, where some questions were addressed to the visually impaired people to get an clear insight
     of what would they expect from EGD navigation system. 
 \par
     From the discussions that were carried out, the requirements for the direction server were
-    categorized into Non-functional and functional parts which are mentioned below.
+    categorized into non-functional and functional parts which are mentioned below.
+    
+    \section{Functional Requirements}
+        This section gives a detailed description of the functional aspects of the my work package % put a reference to this section
+        and the direction API server in a tabular format \ref{table:functionalRequirements}.
+        \subsection{Functional requirements description}
+            \label{ssec:FuncList}
+            \begin{table}[h!]
+                \centering
+                    \begin{tabular}{|p{1cm}||p{15cm}|}
+                        \hline
+                            No. &  Requirement \\
+                        \hline
+                            1. & Choose an appropriate operating system for the raspberry pi3 for implementing 
+                            the navigation module i.e. raspbian \cite{raspbien}, 
+                            android things \cite{androidThings} etc.\\
+                        \hline
+                            2. & Choose a software Architecture i.e. MVC \cite{mvc}, MVP \cite{mvp}
+                            to support the further development process.\\ 
+                        \hline
+                            3. & Choose an API which calculates the routes for the navigation i.e. Google Direction API \cite{googleDirecAPI}, mapbox \cite{mapbox} \\     
+                        \hline
+                            4. & Make an interface which can communicate to the API and return the result with a 
+                            timeout to the server of 10s max, so that user gets immediate feedback. \\    
+                        \hline  
+                            5. & Apply Inversion of control container and use dependency Injection 
+                            \cite{Martinfowler2014} framework to decouple the  dependencies 
+                            in the project.\\
+                        \hline   
+                            6. & Run edge test cases to the API interface so that it can handle
+                            errors.\\    
+                        \hline    
+                    \end{tabular}
+                    \caption{List of functional requirements}
+                    \label{table:functionalRequirements}
+            \end{table}  
+
     \section{Non-functional Requirements}
         The requirements specified in this section present us the non-functional aspects of the 
-        direction server. A table is given below in the subsection 
-        \ref{ssec:nonFuncList}.
+        direction server. A tabular description is given below in the subsection 
+        \ref{ssec:nonFuncList}. The detailed description depicts the benchmarks of how the system
+        should be designed to meet the needs for a better sustainable prototype.
 
-        \newpage
         \subsection{Non-Functional requirements description}
             \label{ssec:nonFuncList}
             \begin{table}[h!]
                 \centering
-                    \begin{tabular}{|p{0.5cm}||p{3cm}|p{9cm}|}
+                    \begin{tabular}{|p{0.5cm}||p{3cm}|p{11cm}|}
                         \hline
                             No. & Requirement & Description \\
                         \hline
@@ -56,6 +92,3 @@
                 \caption{List of non-functional requirements}
                 \label{table:nonfunctionalRequirements}
             \end{table}   
-
-    \section{Functional Requirements}
-    test
