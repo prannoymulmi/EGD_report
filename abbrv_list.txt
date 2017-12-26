@@ -4,3 +4,5 @@ API
 EGD
 MVC
 MVP
+OS
+HTTTP
