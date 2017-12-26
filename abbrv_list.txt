@@ -1,0 +1,6 @@
+Abbr
+
+API
+EGD
+MVC
+MVP
