@@ -35,7 +35,7 @@
     
         
         \newpage
-        \subsection{Comparison and Conlusion} 
+        \subsection{Comparison and Conclusion} 
             \label{ssec:OsComparison}  
             \begin{table}[h!]
                 \centering
@@ -81,7 +81,7 @@
                     Familiarity with the android and Java environment which increased my
                     productivity level.  
                 \item 
-                    The App written for the raspberry pi is similar to how one would
+                    The app written for the raspberry pi is similar to how one would
                     do it for native android so porting the app later to a native android
                     app if wanted would not be an issue. 
                 \item 
@@ -99,7 +99,54 @@
                     Android has a lot of frameworks which makes it easier to interface with an
                     external server via HTTP request \cite{http}.
             \end{enumerate}
+    
+    \section{Choosing Direction API}  
+        The most popular APIs which can calculate the direction routes are Mapbox \cite{mapbox} 
+        and Google Direction API \cite{googleDirecAPI}. One can make a http request with the 
+        right parameter and it returns the appropriate result like below \ref{code: googleAPi Result}.
+        \begin{lstlisting}[
+            caption={Direction API result example}, 
+            label={code: googleAPi Result},
+            ]
+            "legs" : [
+            {
+               "distance" : {
+                  "text" : "35.9 mi",
+                  "value" : 57824
+               },
+               "duration" : {
+                  "text" : "51 mins",
+                  "value" : 3062
+               },
+               "end_address" : "Hauptbahnhof, Hamburg, Germany",
+               "end_location" : {
+                  "lat" : 34.1330949,
+                  "lng" : -118.3524442
+               },
+               "start_address" : "Berliner Tor 7, Hamburg, Germany",
+               "start_location" : {
+                  "lat" : 33.8098177,
+                  "lng" : -117.9154353
+               },  
+        \end{lstlisting}
+    
+        I decided to choose Google Direction API as the server which
+        would calculate the routes that would be required for navigation.
+        The reasons for choosing it over Mapbox API are as follows:
 
+        \begin{enumerate}  
+            \item 
+                Google has huge data streams. This means the google API can provide more
+                accurate directions.
+            \item
+                It provides a free limit of 2500 direction request per day which is more than enough for testing our prototype.
+                compared to  50,000 views/month.
+            \item
+                Google has a very well and up to date documentation of how to use the API.  
+            \item
+                Google API has a very easy to use interface and can be connected to the android
+                project very easily.
+        \end{enumerate}
 
 
 
