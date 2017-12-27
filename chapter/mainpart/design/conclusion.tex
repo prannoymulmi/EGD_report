@@ -25,6 +25,7 @@
         and there should never be more than one reason to change the class. 
         The code base is sub divided in to 8 packages so that the  and they are:
         \newpage
+        \textbf{Project Package description}
         \begin{enumerate}
             \item 
                 \textbf{constants} 
@@ -46,8 +47,10 @@
             \item 
                 \textbf{listners}
                     This package contains custom asynchronous android listeners which gets 
-                    called when the task get done. For example a listener to get the result
-                    from the google API server is also here. 
+                    called when the task get done. For example a listener also known as the
+                    observer pattern \cite{Hotop2015} to get the result
+                    from the google API server is also here. It is the most common way of
+                    making asynchronous calls in android.
             \item 
                 \textbf{models}
                 This package contains the data layers mainly 
@@ -62,6 +65,22 @@
         \end{enumerate}
 
         \par
+           In Figure \ref{fig:directionServiceClassDiagram} the class diagram
+           of the Direction API services can be seen. It is further divided into
+           sub package Google Direction API. This is done following the single
+           responsibility principle and this package only deals with the google
+           servers. Later on in the future other packages which supports the other
+           API's can be added here.
+           The sub package GoogleDirectionAPI is also divided into two concrete
+           implemented class  and one interface.
+           \begin{enumerate}
+               \item 
+                \textbf{GoogleDirectionAPIService}
+
+               \item \textbf{}
+               \item \textbf{}
+           \end{enumerate} 
+
             % Write about why I decided about the two classes and how single responsibility is behind this decision  \ref{fig:directionServiceClassDiagram} 
         \begin{figure}[htbp!]
             \centering \includegraphics[scale=0.6]{grafiken/directionService.jpg}
