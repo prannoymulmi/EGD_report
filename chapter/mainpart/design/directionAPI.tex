@@ -1,0 +1,57 @@
+\section{Choosing Direction API}  
+        The most popular APIs which can calculate the direction routes are Mapbox \cite{mapbox} 
+        and Google Direction API \cite{googleDirecAPI}. One can make a http request with the 
+        right parameter and it returns the appropriate result like below \ref{code: googleAPi Result}.
+        \begin{lstlisting}[
+            caption={Direction API result example}, 
+            label={code: googleAPi Result},
+            ]
+            "legs" : [
+            {
+               "distance" : {
+                  "text" : "35.9 mi",
+                  "value" : 57824
+               },
+               "duration" : {
+                  "text" : "51 mins",
+                  "value" : 3062
+               },
+               "end_address" : "Hauptbahnhof, Hamburg, Germany",
+               "end_location" : {
+                  "lat" : 34.1330949,
+                  "lng" : -118.3524442
+               },
+               "start_address" : "Berliner Tor 7, Hamburg, Germany",
+               "start_location" : {
+                  "lat" : 33.8098177,
+                  "lng" : -117.9154353
+               },  
+        \end{lstlisting}
+    
+        Google Direction API deemed to be the best choice as the API which
+        would calculate the routes that would be required for navigation.
+        The reasons for choosing it over Mapbox API are as follows:
+
+        \begin{enumerate}  
+            \item 
+                Google has huge data streams. This means that google API can provide more
+                accurate directions since it has an enormous amount of data collect. The amount
+                of data google has cannot be compared with Mapbox.
+            \item
+                It provides a free limit of 2500 direction request per day which is more than enough for testing our prototype.
+                compared to  50,000 views/month.
+            \item
+                Google has a very well and up to date documentation of how to use the API.  
+            \item
+                Google API has a very easy to use interface meaning the parameters that it expects are very simple. A sample request can be seen in the code \ref{code: googleAPIRequest}
+                \begin{lstlisting}[
+                    caption={Sample request to Google direction API}, 
+                    label={code: googleAPIRequest},
+                    language=c
+                    ]
+                    https://maps.googleapis.com/maps/api/directions/json?
+                    origin=Disneyland
+                    &destination=Universal+Studios+Hollywood4
+                    &key=YOUR_API_KEY
+                \end{lstlisting}    
+        \end{enumerate}
