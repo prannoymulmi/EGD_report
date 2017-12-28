@@ -2,5 +2,48 @@
 % Realisation
 %---------------------------------------------------------------------------------------------------
 \newpage
-\chapter{Realisation}
-And here the real realisation is outlined, this is your part... a lot of figures?
+\chapter{Implementation}
+    \section{Installing Android Things And Start New Project}
+        To get started with the project it is necessary to flash android things in the
+        microcontroller. The steps to install and run android things are as follows:
+        \begin{enumerate}
+            \item 
+                \textbf{Download and install the latest Android Things system image}
+                    follow the instructions in this \href{https://developer.android.com/things/console/create.html}
+                    {link}
+            \item 
+                \textbf{Build factory images that contain OEM applications along with the system image}
+                        Configure the android things product from this \href{https://developer.android.com/things/console/configure.html}
+                        {tutorial}
+            \item 
+            \textbf{Flash the image to raspberry pi}
+                follow this you tube
+                \href{https://youtu.be/9_ePSCjrQsQ?t=21}{tutorial} after the build is downloaded by following the previous steps.
+                Note: This link starts from 0:21 and the process before this time is obsolete
+                please do not follow the image downloading part form the tutorial.
+                In case your SD card gets corrupted follow this \href{https://youtu.be/cguJpeDRfbc?list=PLr1nMHB-ifhF_3Q92jFqGUgqfABwFIKgZ}
+                {tutorial}.               
+            \item 
+                \textbf{Download android studio}
+                    after downloading android studio either you can just make a android project 
+                    with an empty activity or use the template from this \href{https://github.com/androidthings/new-project-template}
+                    {link}.
+                    If you make choose to make your project with android studio instead of the
+                    template, make sure in the app/build.gradle file you have the android things
+                    dependency listed like the example \ref{code:gradleExample}.                        
+        \end{enumerate}
+    \section{Google API Service Implementation}
+    \section{Dependency Injection With Dagger}
+
+
+
+
+
+
+
+
+
+
+
+
+
