@@ -1,13 +1,15 @@
 \subsection{Single Responsibility Principle}
     This principle states that there every class should have a single responsibility
-    and there should never be more than one reason to change the class. 
-    The code base is sub divided in to 8 packages so that the  and they are:
+    and there should never be more than one reason to change the class. To
+    follow the principle a proper division of the modules is required. 
+    I decided to break down the code base into 8 packages where each 
+    individual modules will go and they are as follows:
     \newpage
     \textbf{Project Package description}
     \begin{enumerate}
         \item 
             \textbf{constants} 
-                this package contains constants like the Raspberry pi pin 
+                This package contains constants like the Raspberry pi I/O pin 
                 numbers, API endpoints. All the variable which will not 
                 change and could be used in the project are normally kept here.
         \item 
@@ -44,7 +46,9 @@
 
     \par
         Figure \ref{fig:directionServiceClassDiagram} presents the class diagram
-        of the Direction API services. The package Direction Service API is further divided 
+        of the Direction API services. This is the main task that is explained
+        in the chapter \ref{sec:introProblemStatement}.
+        The package Direction Service API is further divided 
         into more packages i.e. Google Direction API service. This package 
         structure is maintained to achieve cohesiveness \cite{AdamCarlson}. Cohesion
         is a way to measure how much a segment in a code belong together. 
