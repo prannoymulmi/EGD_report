@@ -3,9 +3,9 @@
 
 import os
 
-EXT = [".aux", ".bbl", ".blg", \
- ".idx", ".lof", ".log", \
-".lot", ".nlo", ".out", ".toc"]
+EXT = [".atl", ".aux", ".bbl", ".blg", \
+".fls", ".idx", ".ilg", ".lof", ".log", \
+".lot", ".nlo", ".out", ".toc", ".fdb_latexmk", ".synctex(busy)"]
 
 
 def clean(file_name):
