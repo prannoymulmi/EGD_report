@@ -7,16 +7,15 @@
     \ref{fig:DIExample} gives us an overview of the principle.
 
     \begin{figure}[htbp!]
-        \centering \includegraphics[scale=0.85]{grafiken/di.jpg}
-        \caption{Dependency Inversion example
-        \href{https://upload.wikimedia.org/wikipedia/commons/9/96/Dependency_inversion.png}{ImageRef}}
-        \label{fig:DIExample}
+        \centering \includegraphics{grafiken/di_compare.png}
+        \caption{Comparision of code with(bottom) and without Dependency injection(top)}
+        \label{fig:DIComparision}
     \end{figure}
 
     \par
         Dependency Inversion will be achieved in this module with the help of a dependency
         injector \href{http://square.github.io/dagger/}{Dagger} 
-        \ref{appendix:dagger}, 
+        see appendix \ref{appendix:dagger}, 
         which 
         will be used to inject the dependencies into the classes. 
         This framework is responsible for creating and managing the 

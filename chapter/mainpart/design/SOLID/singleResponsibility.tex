@@ -1,4 +1,5 @@
 \subsection{Single Responsibility Principle}
+    
     This principle states that there every class should have a single responsibility
     and there should never be more than one reason to change the class. To
     follow the principle a proper division of the modules is required. 
@@ -25,12 +26,14 @@
             \textbf{Interfaces}
                 This package contains all the Interfaces for the corresponding classes. 
         \item 
-            \textbf{listners}
+            \textbf{Listeners}
                 This package contains custom asynchronous android listeners which gets 
                 called when the task get done. For example a listener also known as the
                 observer pattern \cite{Hotop2015} to get the result
                 from the google API server is also here. It is the most common way of
-                making asynchronous calls in android.
+                making asynchronous calls in android. 
+                \href{https://guides.codepath.com/android/Creating-Custom-Listeners}
+                {Android custom listener}
         \item 
             \textbf{models}
             This package contains the data layers mainly 
@@ -45,6 +48,7 @@
     \end{enumerate}
 
     \par
+        \label{ssec:srp}
         Figure \ref{fig:directionServiceClassDiagram} presents the class diagram
         of the Direction API services. This is the main task that is explained
         in the chapter \ref{sec:introProblemStatement}.
