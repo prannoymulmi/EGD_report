@@ -27,10 +27,11 @@
                 which classes receive the dependencies. A Component class can contain 
                 many modules, this is done so that the modules could be reusable. 
         \item 
-            \textbf{What objects do you want to inject}
-                This is the class where the dependencies would be injected. This is done
+            \textbf{Inject the dependencies}
+                The last thing to be done is to inject the dependencies. This is done by
                 using the annotation @Inject and then in the constructor run the builder
-                of the corresponding component see section \ref{code:injectionDaggerExample}. 
+                of the corresponding component see section \ref{code:injectionDaggerExample} for the
+                implementation. 
     \end{enumerate}
     For more detailed information for the annotations check out
     this \href{http://www.vogella.com/tutorials/Dagger/article.html}
