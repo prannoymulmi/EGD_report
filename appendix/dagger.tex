@@ -15,3 +15,78 @@
         \href{https://upload.wikimedia.org/wikipedia/commons/9/96/Dependency_inversion.png}{ImageRef}}
         \label{fig:DIExample}
     \end{figure}
+
+    \newpage
+    \begin{lstlisting}[
+        language=java,
+        label={code:moduleDaggerExample},
+        caption={A module class in Dagger which instantiates objects that are to be injected}
+    ]
+        @Module
+        public class NavigationManagerModule {
+            @Provides
+            @Singleton
+            GoogleDirectionApiService googleDirectionApiService () {
+                return new GoogleDirectionApiService();
+            }
+
+            @Provides
+            IDirectionApi iDirectionApi() {
+                return new GoogleDirectionApiService();
+            }
+
+            @Provides
+            IGpsService gpsService() {
+                return new GpsService();
+            }
+
+            @Provides
+            INavigationIOProcessService navigationIOProcessService() {
+                ClassInstantiatorUtil<INavigationIOProcessService> instantiator = new ClassInstantiatorUtil<>();
+                return instantiator.instantiateClass("navigation.egd.haw.egd_navigation_cj2.services.NavigationIOServices.NavigationIOProcessService");
+            }
+        }
+    \end{lstlisting}
+
+    \newpage
+    \begin{lstlisting}[
+        language=java,
+        label={code:componentDaggerExample},
+        caption={A Component class in Dagger which combines the Module classes for injection }
+    ]
+        @Component(modules = {NavigationManagerModule.class, NetworkCheckUtilModule.class})
+        @Singleton
+        public interface NavigationManagerComponent {
+            void inject(NavigationManger navigationManger);
+        }
+
+                
+            
+        @Component(modules = {NavigationManagerModule.class, NetworkCheckUtilModule.class})
+        @Singleton
+        public interface NavigationManagerComponent {
+            void inject(NavigationManger navigationManger);
+        }
+\end{lstlisting}
+
+\newpage
+\begin{lstlisting}[
+    language=java,
+    label={code:injectionDaggerExample},
+    caption={A example of injecting dependencies in a class using Dagger }
+]
+    public class NavigationManger  implements INavigationManager {
+        //The Abstractions of the services are being used so that they can be replaced by future implmentations
+        @Inject IGpsService gpsService;
+        @Inject INavigationIOProcessService navigationIOProcessService;
+        @Inject IDirectionApi googleDirectionApiService;
+        @Inject INetworkCheckUtil networkCheckUtil;
+
+
+
+        public NavigationManger() {
+            // All the dependencies being injected using dagger
+            DaggerNavigationManagerComponent.builder().build().inject(this);
+        }
+    } 
+\end{lstlisting}

@@ -1,2 +1,37 @@
 \newpage
 \section{Dependency Injection With Dagger}
+    This section is focused in explaining how dependency injection is implemented
+    using the framework Dagger.
+    The \href{https://github.com/slidenerd/Vivz_Dagger_2_Demo}{link} has demos and snippets
+    of how to add dagger as dependency to your project. There are three steps considered
+    to achieve dependency Injection using dagger. The described procedure is the most
+    basic steps needed. 
+    \begin{enumerate}
+        \item 
+            \textbf{Create a class which the objects that is to be injected(Module)}
+                Section \ref{code:moduleDaggerExample} shows an example of class which instantiates 
+                objects which would be injected. @Module defines the class and @Provides
+                defines the method which provide the dependencies to be injected. Without the
+                @Provides annotation the object will not be injected. 
+                It is best practice to make the modules small, and only define 
+                the objects in the a here 
+                which belong together i.e. NetworkCheckUtilModule would only have
+                objects that NavigationCheck class would require.  
+        \item 
+            \textbf{Create a Component class}
+                A component(@Component) is an interface for dagger where one  must define 
+                what modules to choose and which class should these dependencies be injected into. 
+                Section \ref{code:componentDaggerExample} shows an example of the implementation of a 
+                component class.
+                Through the inject method you define
+                which classes receive the dependencies. A Component class can contain 
+                many modules, this is done so that the modules could be reusable. 
+        \item 
+            \textbf{What objects do you want to inject}
+                This is the class where the dependencies would be injected. This is done
+                using the annotation @Inject and then in the constructor run the builder
+                of the corresponding component see section \ref{code:injectionDaggerExample}. 
+    \end{enumerate}
+    For more detailed information for the annotations check out
+    this \href{http://www.vogella.com/tutorials/Dagger/article.html}
+    {link}.
