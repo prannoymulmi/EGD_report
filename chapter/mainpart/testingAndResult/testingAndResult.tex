@@ -1,1 +1,60 @@
-\chapter{Testing and Results}
+\chapter{Testing and Validation}
+Some scenarios were tested to verify the
+correct functionality of the Google Direction
+API. The tests were made in accordance
+to the functional requirements mentioned
+in section \ref{ssec:FuncList}. The implementation for 
+catching the errors are implemented but due to the fact that,
+how the error handling must be done was not discussed a null (where possible) 
+is being returned with comments in the code that, it is to be decided later. 
+
+\section{Invalid Input Handling Test}
+    This test is specifically to evaluate what would happen if a wrong Input address i.e. 
+    Berliner Dor 7 instead of Berliner Tor 7 is received. If the provided input does not exist
+    the server still returns a success code of 200 but the attribute \textbf{status} inside the body
+    would not be ok. See method getWalkingDirection in appendix 
+    \ref{code:retrofitConfig}, this is where the check is done to verify
+    if the result received is valid. In this 
+    \href{https://developers.google.com/maps/documentation/javascript/directions#DirectionsRegionBiasing} 
+    {link} are the detailed description of the status codes return by this API.
+
+\section{Inputting an Address which exist in Another city}
+    This is a test to check the behavior in the case, when the 
+    end address provided is of the same name in another city or country. 
+    Example of the test case is if a user only gives \textbf{Rathhaus} 
+    as an input the API does not necessarily understands it as Rathaus Hamburg since
+    even though the request are being made from Hamburg.
+    To solve this issue the end destination address should not only
+    be the Rathaus rather Rathaus Hamburg and the optional
+    query region must be also sent to ensure the correct
+    result. 
+    
+    \textbf{Note: }To pass in additional optional queries a Map<String, Sting>
+    is being passed see appendix \ref{code:retrofitConfig} method getWalkingDirection
+    i.e. Map<"region", "DE"> any optional queries can be passed like this.
+
+\section{Network Timeout Test}
+    This test is done to check the behavior of the system
+    if the API fails to respond within the
+    given timeframe. According to the requirements
+    the timeout is supposed to be 10s but during the testing phase 
+    the server always responded within this timeframe therefore the
+    timeout was reduced to 1s for testing. After
+    reducing the timeframe the server could not respond within this time 
+    and a SocketTimeoutException was thrown which can be handled easily. See
+    appendix
+    \ref{code:retrofitConfig} how it is being handled. 
+
+    Since the timeout works for 1s it will also work for 10s since its just a arbitrary
+    time the task will wait until terminating the call since the API is not responding. 
+
+\section{Internet Connection Availability Test}
+    To make a API request a internet connection is necessary. There is 
+    already a check being made which is being done by
+    NetworkCheckUtil for active internet connection see appendix
+    \ref{code:networkCheckUtil} for its implementation.
+
+    This test case could not be tested because an active internet connection
+    is needed to debug the microcontroller (Android things bottle neck). Due to this reason this test could not
+    be fully tested.
+    

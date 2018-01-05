@@ -1,0 +1,28 @@
+\newpage
+\section{Network Check Util}
+This class is responsible to check if there is an active internet 
+connection in the device.
+\begin{lstlisting}[
+    caption={Network check Util},
+    label={code:networkCheckUtil},
+    language=java
+    ]
+
+    public class NetworkCheckUtil implements INetworkCheckUtil{
+    @Override
+    public boolean isConnectingToInternet(Object object) {
+        Context context = (Context) object;
+        if(context != null) {
+            ConnectivityManager cm =
+                    (ConnectivityManager) (context.getSystemService(Context.CONNECTIVITY_SERVICE));
+
+            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+
+            return activeNetwork != null &&
+                    activeNetwork.isConnectedOrConnecting();
+        }
+        return false;
+    }
+    }
+\end{lstlisting}    
+
