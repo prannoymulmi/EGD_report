@@ -8,3 +8,4 @@ OS
 HTTP
 UI
 DI
+EGD

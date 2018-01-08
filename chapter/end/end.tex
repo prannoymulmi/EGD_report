@@ -4,15 +4,55 @@
 \newpage
 %\part{end}
 \chapter{Conclusion}
-    This work module presents the service which interfaces
+    This module presents a service which interfaces
     between the Google Direction API and the Raspberry pi 3
-    to receive the raw data which would be used for navigation
+    to receive the raw data as seen in Listing 
+    \ref{code: googleAPi Result} which would be 
+    used for navigation
     as mentioned in Section \ref{sec:introProblemStatement}.
     The module is realized using java as the programming 
     language and Android Things \cite{androidThings} as the
     operating environment. The software design aspects like
     object oriented design and MVP \cite{mvp} architecture 
     were kept in focus. This is done to achieve  
-    better maintainability of the module. 
-    
+    better maintainability of the module in the future.
+   
 \section{Further Work}
+    It is important that all the sub modules are integrated
+    so that the navigation module is fully functional to be used in the
+    EGD. The project is already setup for integration see Listing 
+    \ref{code:navigationManager}. Using dagger the modules are injected
+    to the navigation manager (presenter in MVP \cite{mvp}). 
+    For example if the
+    GpsService module is implemented one must just define the methods
+    that it wants to expose in the interface IGpsService 
+    which can be used in the NavigationManager.
+    See Section \ref{sec:daggerDIImplementation} to know in detail 
+    about the dependency injection.
+    
+    The current realization of the module just uses Google Direction
+    API \cite{googleDirecAPI} and google provides many interesting 
+    API's which could be used for extra features like Geolocation API 
+    which can convert the current long, lat coordinates to an 
+    human readable address and vice-versa. This feature could be used to
+    get the address of users current position if the user gets lost on 
+    the way while using the navigating system.
+
+    It would also be a point of interest to extend and refactor the
+    current implementation to make it more robust and scalable in nature.
+    One proposal would be to dynamically inject objects by setting up an 
+    XML configuration, see Listing \ref{code:xmlParserUtil}  which
+    parses a xml file containing the module name and the specific module
+    which is to be injected. A benefit of doing this would be, if one wants
+    to unit test a class with a mock object it would be possible to do this
+    by just passing the package name in the XML file as in 
+    Listing \ref{code:xmlConfig} to the 
+    corresponding module. It should be kept in mind that the provider
+    method should return the same type as the one which is specified
+    in the XML otherwise a runtime error would occur. 
+    Listing \ref{code:dynamicDIExample} provides an example for setting up 
+    a DI using dagger with the configuration xml.  
+
+    
+    
+        
