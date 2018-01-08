@@ -8,8 +8,8 @@
     was conducted, where some questions were addressed to the visually impaired people to get an clear insight
     of what would they expect from EGD navigation system. 
 \par
-    From the discussions that were carried out, the requirements for the direction server were
-    categorized into non-functional and functional parts which are mentioned below.
+    From the discussions that were carried out, the requirements for the direction API module were
+    categorized into functional and non-functional parts which are mentioned below.
     
     \section{Functional Requirements}
         This section gives a detailed description of the functional aspects of the my work package % put a reference to this section
@@ -29,17 +29,18 @@
                             2. & Choose a software Architecture i.e. MVC \cite{mvc}, MVP \cite{mvp}
                             etc. to support the further development process.\\ 
                         \hline
-                            3. & Choose an API which calculates the routes for the navigation i.e. Google Direction API \cite{googleDirecAPI}, mapbox \cite{mapbox} \\     
+                            3. & Choose an API which calculates the routes for the navigation i.e. Google Direction API 
+                            \cite{googleDirecAPI}, mapbox \cite{mapbox} etc. \\     
                         \hline
-                            4. & Make an interface which can communicate to the API and return the result with a 
+                            4. & Implement a service which can communicate to the API and return the result with a 
                             timeout to the server of 10s max, so that user gets immediate feedback. \\    
                         \hline  
-                            5. & Apply Inversion of control container and use dependency Injection 
+                            5. & Apply dependency injection 
                             \cite{Martinfowler2014} framework to decouple the  dependencies 
                             in the project.\\
                         \hline   
                             6. & Handle network timeout, wrong input,
-                            no internet connection by providing feedback.\\    
+                            no internet connection by providing feedback to the user.\\    
                         \hline    
                     \end{tabular}
                     \caption{List of functional requirements}
@@ -48,7 +49,7 @@
 
     \section{Non-functional Requirements}
         The requirements specified in this section present us the non-functional aspects of the 
-        direction server. A tabular description is given below in the subsection 
+        direction API module. A tabular description is given below in the subsection 
         \ref{ssec:nonFuncList}. The detailed description depicts the benchmarks of how the system
         should be designed to meet the needs for a better sustainable prototype.
 
@@ -75,17 +76,18 @@
                         \hline
                             4. & Maintainability & This relates to how the program is written and it 
                             should be designed using the software design patterns. So that it is easier to
-                            debug and extend the app later.\\
+                            debug and extend the module later.\\
                         \hline    
                             5. & Modifiability & It could be the case that the server chosen does not 
-                            fulfill the use case later and the system should be decoupled.\\
+                            fulfill the use case later. For easy
+                            modification the system should be decoupled.\\
                         \hline
-                            6. & Responsiveness & The server should give some kind of feedback to the user
-                            never the less if request cannot be made by providing an error log in case of
-                            failure\\
+                            6. & Responsiveness & The API should give some kind of feedback to the user
+                            never the less if request cannot be made an error message should be
+                            returned instead of no result.\\
                         \hline
-                            7. & Migration of the app & Currently the proposal of the navigation module is to be
-                            developed in a raspberry pi 3  and make it easier to port to a mobile device.\\ 
+                            7. & Migration of the app & Easy porting from a IoT \cite{IoT} app 
+                            and to a mobile app.\\ 
                                  
                         \hline    
                     \end{tabular}    

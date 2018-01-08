@@ -1,7 +1,8 @@
 \section{Choosing Direction API}  
-        The most popular APIs which can calculate the direction routes are Mapbox \cite{mapbox} 
+        The most popular API's which can calculate the direction routes are Mapbox \cite{mapbox} 
         and Google Direction API \cite{googleDirecAPI}. One can make a http request with the 
-        right parameter and it returns the appropriate result like below \ref{code: googleAPi Result}.
+        right parameter and it returns the appropriate result similar to Listing 
+        \ref{code: googleAPi Result}.
         \begin{lstlisting}[
             caption={Direction API result example}, 
             label={code: googleAPi Result},
@@ -29,20 +30,20 @@
         \end{lstlisting}
     
         \subsection{Evaluation}
-            Google Direction API deemed to be the best choice as the API which
-            would calculate the routes that would be required for navigation.
+            Google Direction API seems to be the better choice as the 
+            direction API.
             The reasons for choosing it over Mapbox API are as follows:
 
             \begin{enumerate}  
                 \item 
                     Google has huge data streams. This means that google API can provide more
-                    accurate directions since it has an enormous amount of data collect. The amount
+                    accurate directions since it has an enormous data. The quantity
                     of data google has cannot be compared with Mapbox.
                 \item
                     It provides a free limit of 2500 direction request per day which is more than enough for testing our prototype.
                     compared to  50,000 views/month.
                 \item
-                    Google has a very well and up to date documentation of how to use the API.  
+                    Google has a very well and up to date documentation for its API.  
                 \item
                     Google API has a very easy to use interface meaning the input 
                     parameters that it expects are very simple. 
@@ -52,18 +53,17 @@
                         label={code: googleAPIRequest},
                         language=c
                         ]
-                        https://maps.googleapis.com/maps/api/directions/json?
-                        origin=Disneyland
+                        https://maps.googleapis.com/maps/api/directions
+                        /json?origin=Disneyland
                         &destination=Universal+Studios+Hollywood4
                         &key=YOUR_API_KEY
                     \end{lstlisting}   
                 \item 
                     Google has developed a vast range of web services that can be
-                    combined with \href{https://developers.google.com/maps/documentation/directions/start}
-                    {Google direction API} such as \href{https://developers.google.com/places/} 
-                    {Places API}, \href{https://developers.google.com/maps/documentation/geolocation/intro}
-                    {Geolocation API}, \href{https://developers.google.com/maps/documentation/elevation/start}
-                    {Elevation API} and \href{https://developers.google.com/places/documentation/} {many others}. 
+                    combined with
+                    Google direction API such as  
+                    Places API, Geolocation API,
+                    Elevation API and many others \cite{GoogleWebServices}. 
                     These services can be combined later for a better results and mapbox 
                     currently does not provide these services. 
             \end{enumerate}
