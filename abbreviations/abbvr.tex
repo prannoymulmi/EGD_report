@@ -1,0 +1,18 @@
+%\documentclass{article}
+    \newcommand{\abbrlabel}[1]{\makebox[3cm][l]{\textbf{#1}\ }}
+\newenvironment{abbreviations}{\begin{list}{}{\renewcommand{\makelabel}{\abbrlabel}}}{\end{list}}
+%\begin{document}
+
+\newpage
+\section*{Abbreviations}
+\begin{abbreviations}
+\item[API] Application Programming Interface
+\item[EGD] Electronic Guide Dog
+\item[MVC] Model View Controller
+\item[MVP] Model View Presenter
+\item[OS] Operating System
+\item[HTTP] Hyper Text Transfer Protocol
+\item[UI] User Interface
+\item[DI] Dependency Injection
+\end{abbreviations}
+%\end{document}
