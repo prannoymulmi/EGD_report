@@ -14,7 +14,8 @@ connection in the device.
         Context context = (Context) object;
         if(context != null) {
             ConnectivityManager cm =
-                    (ConnectivityManager) (context.getSystemService(Context.CONNECTIVITY_SERVICE));
+                    (ConnectivityManager) 
+                    (context.getSystemService(Context.CONNECTIVITY_SERVICE));
 
             NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 

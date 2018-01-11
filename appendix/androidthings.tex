@@ -5,33 +5,33 @@
         \begin{enumerate}
             \item 
                 \textbf{Download and install the latest Android Things system image}
-                    follow the instructions in this \href{https://developer.android.com/things/console/create.html}
-                    {link}
+                    follow the instructions in this link \url{https://developer.android.com/things/console/create.html}
             \item 
                 \textbf{Build factory images that contain OEM applications along with the system image}
-                        Configure the android things product from this \href{https://developer.android.com/things/console/configure.html}
-                        {tutorial}
+                        Configure the android things product from this tutorial 
+                        \url{https://developer.android.com/things/console/configure.html}
+                        
             \item 
             \textbf{Flash the image to raspberry pi}
-                follow this you tube
-                \href{https://youtu.be/9_ePSCjrQsQ?t=21}{tutorial} after the build is downloaded by following the previous steps.
+                follow this youtube tutorial
+                \url{https://youtu.be/9_ePSCjrQsQ?t=21} after the build is downloaded by following the previous steps.
                 Note: This link starts from 0:21 and the process before this time is obsolete
                 please do not follow the image downloading part form the tutorial.
-                In case your SD card gets corrupted follow this \href{https://youtu.be/cguJpeDRfbc?list=PLr1nMHB-ifhF_3Q92jFqGUgqfABwFIKgZ}
-                {tutorial}.               
+                In case your SD card gets corrupted follow this tutorial
+                \url{https://youtu.be/cguJpeDRfbc?list=PLr1nMHB-ifhF_3Q92jFqGUgqfABwFIKgZ}.
             \item 
                 \textbf{Download android studio}
                     after downloading android studio either you can just make a android project 
-                    with an empty activity or use the template from this \href{https://github.com/androidthings/new-project-template}
-                    {link}.
+                    with an empty activity or use the template from this 
+                    link \url{https://github.com/androidthings/new-project-template}
+                    .
                     If you make choose to make your project with android studio instead of the
                     template, make sure in the app/build.gradle file you have the android things
-                    dependency listed like the example \ref{code:gradleExample}.
+                    dependency similar to the Listing \ref{code:gradleExample}.
             \item 
-                \textbf{Connect to the internet to program the pi}
+                \textbf{Connect to the internet to upload your Java program the pi}
                     internet is required to program the raspberry pi with android things.
-                    follow this \href{https://developer.android.com/things/hardware/raspberrypi.html}
-                    {link}.                                  
+                    follow this link \url{https://developer.android.com/things/hardware/raspberrypi.html}.                                  
         \end{enumerate}
     \newpage    
     \begin{lstlisting}[
@@ -56,7 +56,8 @@
             buildTypes {
                 release {
                     minifyEnabled false
-                    proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    proguardFiles getDefaultProguardFile
+                    ('proguard-android.txt'),
                      'proguard-rules.pro'
                 }
             }
@@ -76,7 +77,8 @@
         
             //Android Things
             //here should be the version of android things you want to use
-            provided 'com.google.android.things:androidthings:0.5.1-devpreview'
+            provided 'com.google.android.things:
+            androidthings:0.5.1-devpreview'
         
             //network
             compile 'com.squareup.retrofit2:retrofit:2.1.0'

@@ -42,8 +42,13 @@
 
             @Provides
             INavigationIOProcessService navigationIOProcessService() {
-                ClassInstantiatorUtil<INavigationIOProcessService> instantiator = new ClassInstantiatorUtil<>();
-                return instantiator.instantiateClass("navigation.egd.haw.egd_navigation_cj2.services.NavigationIOServices.NavigationIOProcessService");
+                
+            ClassInstantiatorUtil<INavigationIOProcessService> 
+                instantiator = new ClassInstantiatorUtil<>();
+
+            return instantiator.instantiateClass
+                ("navigation.egd.haw.egd_navigation_cj2.services.
+                NavigationIOServices.NavigationIOProcessService");
             }
         }
     \end{lstlisting}
@@ -70,7 +75,8 @@
     caption={A example of injecting dependencies in a class using Dagger }
 ]
     public class NavigationManger  implements INavigationManager {
-        //The Abstractions of the services are being used so that they can be replaced by future implmentations
+        //The Abstractions of the services are being used so that 
+        they can be replaced by future implmentations
         @Inject IGpsService gpsService;
         @Inject INavigationIOProcessService navigationIOProcessService;
         @Inject IDirectionApi googleDirectionApiService;
