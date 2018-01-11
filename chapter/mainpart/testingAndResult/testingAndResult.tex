@@ -3,34 +3,34 @@ Some scenarios were tested to verify the
 correct functionality of the Google Direction
 API. The tests were made in accordance
 to the functional requirements mentioned
-in section \ref{ssec:FuncList}. The implementation for 
+in Section \ref{ssec:FuncList}. The implementation for 
 catching the errors are implemented but due to the fact that,
 how the error handling must be done was not discussed a null (where possible) 
-is being returned with comments in the code that, it is to be decided later. 
+is being returned with comments in the code.
 
 \section{Invalid Input Handling Test}
     This test is specifically to evaluate what would happen if a wrong Input address i.e. 
     Berliner Dor 7 instead of Berliner Tor 7 is received. If the provided input does not exist
     the server still returns a success code of 200 but the attribute \textbf{status} inside the body
-    would not be ok. See method getWalkingDirection in appendix 
+    would return Ok. See method getWalkingDirection in Appendix 
     \ref{code:retrofitConfig}, this is where the check is done to verify
-    if the result received is valid. In this 
-    \href{https://developers.google.com/maps/documentation/javascript/directions#DirectionsRegionBiasing} 
-    {link} are the detailed description of the status codes return by this API.
+    if the result received is valid. In this link 
+    \url{https://developers.google.com/maps/documentation/javascript/directions#DirectionsRegionBiasing} 
+     are the detailed description of the status codes return by this API.
 
 \section{Inputting an Address which exist in Another city}
     This is a test to check the behavior in the case, when the 
     end address provided is of the same name in another city or country. 
     Example of the test case is if a user only gives \textbf{Rathhaus} 
-    as an input the API does not necessarily understands it as Rathaus Hamburg since
-    even though the request are being made from Hamburg.
-    To solve this issue the end destination address should not only
+    as an input the API does not necessarily understands it as Rathaus Hamburg 
+    even though the request is being made from Hamburg.
+    To handle this issue the end destination address should not only
     be the Rathaus rather Rathaus Hamburg and the optional
     query region must be also sent to ensure the correct
     result. 
     
     \textbf{Note: }To pass in additional optional queries a Map<String, Sting>
-    is being passed see appendix \ref{code:retrofitConfig} method getWalkingDirection
+    is being passed see Appendix \ref{code:retrofitConfig} method getWalkingDirection
     i.e. Map<"region", "DE"> any optional queries can be passed like this.
 
 \section{Network Timeout Test}
@@ -42,17 +42,18 @@ is being returned with comments in the code that, it is to be decided later.
     timeout was reduced to 1s for testing. After
     reducing the timeframe the server could not respond within this time 
     and a SocketTimeoutException was thrown which can be handled easily. See
-    appendix
+    Appendix
     \ref{code:retrofitConfig} how it is being handled. 
 
-    Since the timeout works for 1s it will also work for 10s since its just a arbitrary
-    time the task will wait until terminating the call since the API is not responding. 
+    Is is assumed the timeout will function similarly for 10s as it 
+    did for 1s since its just a arbitrary
+    time which is configured.
 
 \section{Internet Connection Availability Test}
     \label{sec:internetConnectionTest}
     To make a API request a internet connection is necessary. There is 
     already a check being made which is being done by
-    NetworkCheckUtil for active internet connection see appendix
+    NetworkCheckUtil for active internet connection see Appendix
     \ref{code:networkCheckUtil} for its implementation.
 
     This test case could not be tested because an active internet connection

@@ -21,7 +21,8 @@
     It is important that all the sub modules are integrated
     so that the navigation module is fully functional to be used in the
     EGD. The project is already setup for integration see Listing 
-    \ref{code:navigationManager}. Using dagger the modules are injected
+    \ref{code:navigationManager}. Using dagger \cite{SquareDagger} the
+    modules are injected
     to the navigation manager (presenter in MVP \cite{mvp}). 
     For example if the
     GpsService module is implemented one must just define the methods
@@ -34,12 +35,15 @@
     API \cite{googleDirecAPI} and google provides many interesting 
     API's which could be used for extra features like Geolocation API 
     which can convert the current long, lat coordinates to an 
-    human readable address and vice-versa. This feature could be used to
-    get the address of users current position if the user gets lost on 
+    human readable address and vice-versa and many more. These features 
+    could be used to get the address of users
+    current position if the user gets lost on 
     the way while using the navigating system.
 
     It would also be a point of interest to extend and refactor the
-    current implementation to make it more robust and scalable in nature.
+    current implementation to make this navigation 
+    module more robust and 
+    scalable in nature.
     One proposal would be to dynamically inject objects by setting up an 
     XML configuration, see Listing \ref{code:xmlParserUtil}  which
     parses a xml file containing the module name and the specific module

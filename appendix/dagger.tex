@@ -54,19 +54,13 @@
         label={code:componentDaggerExample},
         caption={A Component class in Dagger which combines the Module classes for injection }
     ]
-        @Component(modules = {NavigationManagerModule.class, NetworkCheckUtilModule.class})
+        @Component(modules = {NavigationManagerModule.class,
+         NetworkCheckUtilModule.class})
         @Singleton
         public interface NavigationManagerComponent {
             void inject(NavigationManger navigationManger);
         }
 
-                
-            
-        @Component(modules = {NavigationManagerModule.class, NetworkCheckUtilModule.class})
-        @Singleton
-        public interface NavigationManagerComponent {
-            void inject(NavigationManger navigationManger);
-        }
 \end{lstlisting}
 
 \newpage

@@ -1,23 +1,23 @@
 
 \section{Google API Service Implementation}
-    Following the design in the section \ref{ssec:srp} the class 
+    Following the design in Section \ref{ssec:srp} the class 
     GoogleAPIService is responsible to make the request to the Google
     Direction API and return the result to the presenter which will be
-    processed by the I/O service. The fig \ref{fig:directionServiceSeqDiagram}
+    processed by the I/O service. Figure \ref{fig:directionServiceSeqDiagram}
     describes the object interactions and the messages exchanged during the
     single request that is made in order to receive a navigation data as described in
-    the list \ref{code: googleAPi Result}.
+    Listing \ref{code: googleAPi Result}.
     
     \par
-        The GoogleDirectionAPIService implementation can be examined in
-        the appendix \ref{code:googleAPIService}.
+        The GoogleDirectionAPIService implementation can be seen in the
+        Appendix \ref{code:googleAPIService}.
         Dependencies for the realizations are described below:
         \begin{enumerate}
             \item  
                 \textbf{AsyncTaskUtil}
                     This is a custom made class which is reusable and used for background
-                    operations see appendix \ref{code:AsyncUtil}. It is used here to make an HTTP request and this enables
-                    the task to run without blocking the main thread. 
+                    operations see Appendix \ref{code:AsyncUtil}. It is mainly used in the services 
+                    to make an HTTP request without blocking the main thread. 
             \item  
                 \textbf{GoogleDirectionApiMiddleware}
                 As described earlier to make http request a HTTP client 
@@ -29,7 +29,7 @@
                 to ensure the request is terminated 
                 in case of situation when the server is not available 
                 and error handling methods are configured in 
-                GoogleDirectionMiddleware. Please see the appendix 
+                GoogleDirectionMiddleware. Please see Appendix 
                 \ref{code:retrofitConfig} to check the configuration. 
             \item  
                 \textbf{DirectionAPI}

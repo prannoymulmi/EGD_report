@@ -1,9 +1,9 @@
 \subsection{Single Responsibility Principle}
     
-    This principle states that there every class should have a single responsibility
+    This principle states that, every class should have a single responsibility
     and there should never be more than one reason to change the class. To
-    follow the principle a proper division of the modules is required. 
-    I decided to break down the code base into 8 packages where each 
+    follow the principle a proper division of the modules are required. 
+    A decision to break down the code base into 8 packages was done, where each 
     individual modules will go and they are as follows:
     \newpage
     \textbf{Project Package description}
@@ -24,45 +24,47 @@
                 This package would contain custom exceptions if created.
         \item 
             \textbf{Interfaces}
-                This package contains all the Interfaces for the corresponding classes. 
+                This package contains all the Interfaces for the implementing classes. 
         \item 
             \textbf{Listeners}
                 This package contains custom asynchronous android listeners which gets 
-                called when the task get done. For example a listener also known as the
-                observer pattern \cite{Hotop2015} to get the result
-                from the google API server is also here. It is the most common way of
-                making asynchronous calls in android. 
-                \href{https://guides.codepath.com/android/Creating-Custom-Listeners}
-                {Android custom listener}
+                called when the task get done. An android listener follows the
+                observer pattern \cite{Hotop2015}. Android custom listeners 
+                are the most common way of
+                making asynchronous calls in android \cite{Codepath}. 
         \item 
             \textbf{models}
-            This package contains the data layers mainly 
-            \href{https://spring.io/understanding/POJO}  {POJO}. Classes defining how the
+            This package contains the data layers that are mainly 
+            POJO's \cite{Pivotal} which are classes defining how the
             data should look like.
         \item 
             \textbf{services} 
-                This packages consist of sub packages for the I/O, GPS and Direction service.
+                This packages consist of the main functional modules
+                of the navigation module                
+                i.e. I/O, GPS and Direction service. 
         \item 
             \textbf{utils}
-                This package has the utilities for making the API requests and other utilities. 
+                This package contains the utilities which are needed by the 
+                services and other classes
+                i.e. Async tasks, dynamic class instantiator etc. 
     \end{enumerate}
 
     \par
         \label{ssec:srp}
         Figure \ref{fig:directionServiceClassDiagram} presents the class diagram
-        of the Direction API services. This is the main task that is explained
-        in the chapter \ref{sec:introProblemStatement}.
+        of the Direction API services. This is the main task that is described
+        in Chapter \ref{sec:introProblemStatement}.
         The package Direction Service API is further divided 
         into more packages i.e. Google Direction API service. This package 
         structure is maintained to achieve cohesiveness \cite{AdamCarlson}. Cohesion
-        is a way to measure how much a segment in a code belong together. 
+        is a way to measure how much does a segment in a code belong together. 
         
         \par
         The Google Direction API service contains the actual implementation 
         which make requests to the server and fetches back the result to the 
         presenter \cite{mvp} for further processing. This package is also split up into 
         two concrete implemented class and a abstract interface. The reason
-        for splitting them in the manner is again the same to preserve cohesion
+        for splitting them in the manner is again the same, to preserve cohesion
         and decoupling which is stated by the Single responsibility principle.
         The classes are explained more in detail in the list below. 
         \begin{enumerate}
@@ -71,16 +73,16 @@
                 This class is main class which is exposed to the presenter. It is
                 responsible to give the input parameters to the Google direction 
                 middleware, run the request in a thread so that the program is not
-                blocked using \href{https://developer.android.com/reference/android/os/AsyncTask.html}
-                {Async Task Util} this can be found in the util package and the using a listener
+                blocked using Async Task Util \cite{GoogleAsync}
+                this can be found in the util package. The  Android listener
+                are being used to 
                 retrieve the results back after the completion of the asynchronous call.
             \item 
             \textbf{GoogleDirectionAPIMiddleware}
-                As the name states it this class is a middleware where the instantiation
-                of the HTTP client framework \href{http://square.github.io/retrofit/} 
-                {Retrofit} and configuration is being done. It is responsible
+                As the name states this class is a middleware where the instantiation
+                of the HTTP client framework Retrofit \cite{Square} 
+                and its configuration is being done. It is responsible
                 to interface between the google API server and the client.
-                This class is separated to ensure cohesiveness and decoupling.
             \item 
             \textbf{IGoogleDirectionApiService}
                 This is an interface for the Retrofit framework which defines the input
